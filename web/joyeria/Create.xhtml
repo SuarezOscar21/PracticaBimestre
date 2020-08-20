@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateJoyeriaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateJoyeriaLabel_idJoyeria}" for="idJoyeria" />
+                    <h:inputText id="idJoyeria" value="#{joyeriaController.selected.idJoyeria}" title="#{bundle.CreateJoyeriaTitle_idJoyeria}" required="true" requiredMessage="#{bundle.CreateJoyeriaRequiredMessage_idJoyeria}"/>
+                    <h:outputLabel value="#{bundle.CreateJoyeriaLabel_nombre}" for="nombre" />
+                    <h:inputText id="nombre" value="#{joyeriaController.selected.nombre}" title="#{bundle.CreateJoyeriaTitle_nombre}" />
+                    <h:outputLabel value="#{bundle.CreateJoyeriaLabel_ubicacion}" for="ubicacion" />
+                    <h:inputText id="ubicacion" value="#{joyeriaController.selected.ubicacion}" title="#{bundle.CreateJoyeriaTitle_ubicacion}" />
+                    <h:outputLabel value="#{bundle.CreateJoyeriaLabel_direccion}" for="direccion" />
+                    <h:inputText id="direccion" value="#{joyeriaController.selected.direccion}" title="#{bundle.CreateJoyeriaTitle_direccion}" />
+                    <h:outputLabel value="#{bundle.CreateJoyeriaLabel_nombreEncargado}" for="nombreEncargado" />
+                    <h:inputText id="nombreEncargado" value="#{joyeriaController.selected.nombreEncargado}" title="#{bundle.CreateJoyeriaTitle_nombreEncargado}" />
+                    <h:outputLabel value="#{bundle.CreateJoyeriaLabel_dimencionLocal}" for="dimencionLocal" />
+                    <h:inputText id="dimencionLocal" value="#{joyeriaController.selected.dimencionLocal}" title="#{bundle.CreateJoyeriaTitle_dimencionLocal}" />
+                    <h:outputLabel value="#{bundle.CreateJoyeriaLabel_ciudad}" for="ciudad" />
+                    <h:inputText id="ciudad" value="#{joyeriaController.selected.ciudad}" title="#{bundle.CreateJoyeriaTitle_ciudad}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{joyeriaController.create}" value="#{bundle.CreateJoyeriaSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{joyeriaController.prepareList}" value="#{bundle.CreateJoyeriaShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateJoyeriaIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

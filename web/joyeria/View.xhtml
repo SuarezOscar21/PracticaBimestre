@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewJoyeriaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewJoyeriaLabel_idJoyeria}"/>
+                    <h:outputText value="#{joyeriaController.selected.idJoyeria}" title="#{bundle.ViewJoyeriaTitle_idJoyeria}"/>
+                    <h:outputText value="#{bundle.ViewJoyeriaLabel_nombre}"/>
+                    <h:outputText value="#{joyeriaController.selected.nombre}" title="#{bundle.ViewJoyeriaTitle_nombre}"/>
+                    <h:outputText value="#{bundle.ViewJoyeriaLabel_ubicacion}"/>
+                    <h:outputText value="#{joyeriaController.selected.ubicacion}" title="#{bundle.ViewJoyeriaTitle_ubicacion}"/>
+                    <h:outputText value="#{bundle.ViewJoyeriaLabel_direccion}"/>
+                    <h:outputText value="#{joyeriaController.selected.direccion}" title="#{bundle.ViewJoyeriaTitle_direccion}"/>
+                    <h:outputText value="#{bundle.ViewJoyeriaLabel_nombreEncargado}"/>
+                    <h:outputText value="#{joyeriaController.selected.nombreEncargado}" title="#{bundle.ViewJoyeriaTitle_nombreEncargado}"/>
+                    <h:outputText value="#{bundle.ViewJoyeriaLabel_dimencionLocal}"/>
+                    <h:outputText value="#{joyeriaController.selected.dimencionLocal}" title="#{bundle.ViewJoyeriaTitle_dimencionLocal}"/>
+                    <h:outputText value="#{bundle.ViewJoyeriaLabel_ciudad}"/>
+                    <h:outputText value="#{joyeriaController.selected.ciudad}" title="#{bundle.ViewJoyeriaTitle_ciudad}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{joyeriaController.destroyAndView}" value="#{bundle.ViewJoyeriaDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewJoyeriaEditLink}"/>
+                <br />
+                <h:commandLink action="#{joyeriaController.prepareCreate}" value="#{bundle.ViewJoyeriaCreateLink}" />
+                <br />
+                <h:commandLink action="#{joyeriaController.prepareList}" value="#{bundle.ViewJoyeriaShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewJoyeriaIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
